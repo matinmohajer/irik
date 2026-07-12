@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 800" width="800" height="800" role="img" aria-hidden="true">
+  <defs>
+    <linearGradient id="bg-laptop-acer-nitro-v15" gradientTransform="rotate(45)">
+      <stop offset="0%" stop-color="#EFEFF2"/>
+      <stop offset="100%" stop-color="#E4E5EA"/>
+    </linearGradient>
+    <pattern id="dots-laptop-acer-nitro-v15" width="30" height="30" patternUnits="userSpaceOnUse" patternTransform="rotate(5)">
+      <circle cx="1.5" cy="1.5" r="1.6" fill="#2454D9" opacity="0.16"/>
+    </pattern>
+  </defs>
+
+  <rect width="800" height="800" fill="url(#bg-laptop-acer-nitro-v15)"/>
+  <rect width="800" height="800" fill="url(#dots-laptop-acer-nitro-v15)"/>
+
+  <g fill="none" stroke="#2454D9" stroke-width="3" stroke-linecap="round">
+    <path d="M 36 92 V 36 H 92" opacity="0.9"/>
+    <path d="M 764 708 V 764 H 708" opacity="0.9"/>
+  </g>
+
+  <g transform="translate(400 400) scale(13.600000000000001) translate(-12 -12)" fill="none" stroke="#2454D9" stroke-width="7" stroke-linecap="round" stroke-linejoin="round">
+    
+    <rect x="4.5" y="4.5" width="15" height="10" rx="1" vector-effect="non-scaling-stroke"/>
+    <path d="M2 19.5h20l-1.8-3.3H3.8z" vector-effect="non-scaling-stroke"/>
+    <line x1="10" y1="17.4" x2="14" y2="17.4" vector-effect="non-scaling-stroke"/>
+  </g>
+</svg>

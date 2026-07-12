@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 625" width="1000" height="625" role="img" aria-hidden="true">
+  <defs>
+    <linearGradient id="bg-cpu-cpu-cooler-air-vs-liquid" gradientTransform="rotate(51)">
+      <stop offset="0%" stop-color="#EFEFF2"/>
+      <stop offset="100%" stop-color="#E4E5EA"/>
+    </linearGradient>
+    <pattern id="dots-cpu-cpu-cooler-air-vs-liquid" width="30" height="30" patternUnits="userSpaceOnUse" patternTransform="rotate(31)">
+      <circle cx="1.5" cy="1.5" r="1.6" fill="#2454D9" opacity="0.16"/>
+    </pattern>
+  </defs>
+
+  <rect width="1000" height="625" fill="url(#bg-cpu-cpu-cooler-air-vs-liquid)"/>
+  <rect width="1000" height="625" fill="url(#dots-cpu-cpu-cooler-air-vs-liquid)"/>
+
+  <g fill="none" stroke="#2454D9" stroke-width="3" stroke-linecap="round">
+    <path d="M 28.125 71.875 V 28.125 H 71.875" opacity="0.9"/>
+    <path d="M 971.875 553.125 V 596.875 H 928.125" opacity="0.9"/>
+  </g>
+
+  <g transform="translate(500 312.5) scale(10.625) translate(-12 -12)" fill="none" stroke="#2454D9" stroke-width="7" stroke-linecap="round" stroke-linejoin="round">
+    
+    <rect x="7" y="7" width="10" height="10" rx="1" vector-effect="non-scaling-stroke"/>
+    <rect x="10" y="10" width="4" height="4" vector-effect="non-scaling-stroke"/>
+    <line x1="12" y1="2" x2="12" y2="5.2" vector-effect="non-scaling-stroke"/>
+    <line x1="12" y1="18.8" x2="12" y2="22" vector-effect="non-scaling-stroke"/>
+    <line x1="2" y1="12" x2="5.2" y2="12" vector-effect="non-scaling-stroke"/>
+    <line x1="18.8" y1="12" x2="22" y2="12" vector-effect="non-scaling-stroke"/>
+    <line x1="5" y1="5" x2="7.2" y2="7.2" vector-effect="non-scaling-stroke"/>
+    <line x1="16.8" y1="16.8" x2="19" y2="19" vector-effect="non-scaling-stroke"/>
+  </g>
+</svg>
