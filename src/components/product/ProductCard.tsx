@@ -38,7 +38,9 @@ export function ProductCard({ product }: { product: Product }) {
       <div className="card-body">
         {product.brand && <span className="card-brand">{product.brand}</span>}
         <h3 className="card-title">
-          <Link href={href}>{product.name}</Link>
+          <Link href={href} className="card-link-overlay">
+            {product.name}
+          </Link>
         </h3>
         {product.specChips.length > 0 && (
           <div className="card-specs">

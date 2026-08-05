@@ -1039,6 +1039,7 @@ dialog.mobile-drawer::backdrop {
   display: flex;
   align-items: center;
   justify-content: center;
+  z-index: 2;
 }
 .card-fav .icon {
   width: 15px;
@@ -1071,12 +1072,24 @@ dialog.mobile-drawer::backdrop {
 .card-title a:hover {
   color: var(--accent);
 }
+/* Stretches the title link over the whole card so anywhere on it is
+   clickable, while keeping the visible text in its normal spot. Interactive
+   controls (fav button, add-to-cart) sit above it via z-index so they still
+   handle their own clicks instead of triggering navigation. */
+.card-link-overlay::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+}
 .card-specs {
   display: flex;
   flex-wrap: wrap;
   gap: 5px;
 }
 .card-foot {
+  position: relative;
+  z-index: 2;
   margin-top: auto;
   display: flex;
   align-items: flex-end;
@@ -2588,5 +2601,34 @@ dialog.mobile-drawer::backdrop {
   }
   .visit-band {
     grid-template-columns: 1fr;
+  }
+}
+
+/* ============ Loading skeletons ============ */
+.skeleton {
+  position: relative;
+  overflow: hidden;
+  background: var(--paper-sunken);
+}
+.skeleton::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  transform: translateX(-100%);
+  background: linear-gradient(90deg, transparent, color-mix(in srgb, var(--paper-raised) 70%, transparent), transparent);
+  animation: skeleton-shimmer 1.4s ease-in-out infinite;
+}
+.skeleton-text {
+  display: block;
+  border-radius: var(--radius-sm);
+}
+@keyframes skeleton-shimmer {
+  100% {
+    transform: translateX(100%);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .skeleton::after {
+    animation: none;
   }
 }
