@@ -1,25 +1,20 @@
 import Link from "next/link";
 
-/** Brand mark: an abstract IC-chip glyph — pins on all four sides — paired with the آیریک wordmark. */
+/** Brand mark: the Irick Pardazesh roofline + pixel-grid glyph, paired with the irick.ir wordmark. */
 export function Logo() {
   return (
     <Link href="/" className="logo" aria-label="آیریک — صفحه اصلی">
-      <svg viewBox="0 0 40 40" className="logo-mark" aria-hidden="true">
-        <rect x="3" y="3" width="34" height="34" rx="8" fill="none" stroke="var(--accent)" strokeWidth="2" />
-        <rect x="14.5" y="14.5" width="11" height="11" rx="2" fill="none" stroke="var(--ink)" strokeWidth="2" />
-        <g stroke="var(--accent)" strokeWidth="2" strokeLinecap="round">
-          <line x1="14.5" y1="18" x2="9" y2="18" />
-          <line x1="25.5" y1="18" x2="31" y2="18" />
-          <line x1="14.5" y1="23" x2="9" y2="23" />
-          <line x1="25.5" y1="23" x2="31" y2="23" />
-          <line x1="18" y1="14.5" x2="18" y2="9" />
-          <line x1="23" y1="14.5" x2="23" y2="9" />
-          <line x1="18" y1="25.5" x2="18" y2="31" />
-          <line x1="23" y1="25.5" x2="23" y2="31" />
-        </g>
+      <svg viewBox="0 0 46 40" className="logo-mark" aria-hidden="true">
+        <polygon points="4,34 18,6 22,6 8,34" fill="var(--accent)" />
+        <polygon points="14,34 28,8 34,8 20,34" fill="var(--ink-soft)" />
+        <rect x="27" y="19" width="7" height="7" fill="var(--accent)" />
+        <rect x="35" y="19" width="4.5" height="4.5" fill="var(--ink-soft)" />
+        <rect x="27" y="29" width="4.5" height="4.5" fill="var(--ink-soft)" />
+        <rect x="33.5" y="27" width="6" height="6" fill="var(--accent)" />
+        <rect x="40" y="30" width="3" height="3" fill="var(--ink-soft)" />
       </svg>
-      <span className="logo-text">
-        آیریک<b>.</b>
+      <span className="logo-text" dir="ltr">
+        irick<b>.ir</b>
       </span>
     </Link>
   );
