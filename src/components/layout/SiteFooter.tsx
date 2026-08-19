@@ -14,7 +14,7 @@ export function SiteFooter() {
           </div>
           <a href={siteConfig.phoneHref} className="footer-phone bold">
             <Icon name="phone" />
-            {siteConfig.phoneDisplay}
+            <span dir="ltr">{siteConfig.phoneDisplay}</span>
           </a>
         </div>
       </div>

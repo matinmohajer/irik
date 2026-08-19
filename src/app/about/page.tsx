@@ -57,7 +57,9 @@ export default function AboutPage() {
             <div>
               <strong>تلفن فروشگاه</strong>
               <p>
-                <a href={siteConfig.phoneHref}>{siteConfig.phoneDisplay}</a>
+                <a href={siteConfig.phoneHref} dir="ltr">
+                  {siteConfig.phoneDisplay}
+                </a>
               </p>
             </div>
           </div>

@@ -13,7 +13,7 @@ export function TopBar() {
           </Link>
           <a href={siteConfig.phoneHref}>
             <Icon name="phone" className="icon icon-sm" />
-            {siteConfig.phoneDisplay}
+            <span dir="ltr">{siteConfig.phoneDisplay}</span>
           </a>
         </div>
         <div className="topbar-left">

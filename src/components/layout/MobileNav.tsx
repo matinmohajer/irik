@@ -116,7 +116,7 @@ export function MobileNav({ tree }: { tree: CategoryNode[] }) {
           <div className="mobile-drawer-foot">
             <a href={siteConfig.phoneHref}>
               <Icon name="phone" className="icon icon-sm" />
-              {siteConfig.phoneDisplay}
+              <span dir="ltr">{siteConfig.phoneDisplay}</span>
             </a>
             <p>
               <Icon name="pin" className="icon icon-sm" />
