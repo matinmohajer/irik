@@ -8,19 +8,24 @@ export interface AddressInput {
   state: string;
   postcode: string;
   phone: string;
-  email?: string;
+  email: string;
 }
+
+const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
 /** Validates and maps the frontend's camelCase address form to the Store API's shape. Returns an error message instead of throwing, since this is meant to be checked inline in a Route Handler. */
 export function parseAddressInput(body: unknown): { address: StoreAddress } | { error: string } {
   if (typeof body !== "object" || body === null) return { error: "اطلاعات آدرس نامعتبر است." };
   const b = body as Partial<AddressInput>;
 
-  const required: (keyof AddressInput)[] = ["firstName", "lastName", "address1", "city", "state", "postcode", "phone"];
+  const required: (keyof AddressInput)[] = ["firstName", "lastName", "address1", "city", "state", "postcode", "phone", "email"];
   for (const field of required) {
     if (!b[field] || typeof b[field] !== "string" || !b[field]!.trim()) {
       return { error: "لطفاً همه فیلدهای آدرس را تکمیل کنید." };
     }
+  }
+  if (!EMAIL_RE.test(b.email!.trim())) {
+    return { error: "ایمیل وارد شده معتبر نیست." };
   }
 
   return {
@@ -33,7 +38,7 @@ export function parseAddressInput(body: unknown): { address: StoreAddress } | { 
       postcode: b.postcode!.trim(),
       country: "IR",
       phone: b.phone!.trim(),
-      email: b.email?.trim() || undefined,
+      email: b.email!.trim(),
     },
   };
 }

@@ -24,14 +24,51 @@ export interface StoreApiResult<T> {
   nonce?: string;
 }
 
+// WooCommerce's Store API runs error messages through esc_html(), which HTML-entity-encodes
+// quotes/ampersands — fine for wp-admin markup, but these strings get shown as plain text here.
+const HTML_ENTITIES: Record<string, string> = {
+  "&quot;": '"',
+  "&#039;": "'",
+  "&amp;": "&",
+  "&lt;": "<",
+  "&gt;": ">",
+};
+
+function decodeHtmlEntities(text: string): string {
+  return text.replace(/&quot;|&#039;|&amp;|&lt;|&gt;/g, (entity) => HTML_ENTITIES[entity]);
+}
+
 export class StoreApiError extends Error {
   constructor(
     message: string,
     public status: number,
     public data?: unknown
   ) {
-    super(message);
+    super(decodeHtmlEntities(message));
   }
+}
+
+interface StoreApiErrorBody {
+  message?: string;
+  data?: {
+    details?: Record<string, { message?: string }>;
+  };
+}
+
+// The top-level `message` on a validation failure is a generic wrapper
+// ("Invalid parameter(s): billing_address"); the field-specific reason a
+// user can actually act on lives in `data.details[field].message`.
+function extractErrorMessage(data: unknown): string {
+  const body = data as StoreApiErrorBody;
+  const detailMessages = [
+    ...new Set(
+      Object.values(body?.data?.details ?? {})
+        .map((d) => d.message)
+        .filter((m): m is string => Boolean(m))
+    ),
+  ];
+  if (detailMessages.length > 0) return detailMessages.join(" ");
+  return body?.message ?? "خطای سبد خرید";
 }
 
 export async function storeApiFetch<T>(
@@ -58,7 +95,7 @@ export async function storeApiFetch<T>(
   const data = (await res.json()) as T;
 
   if (!res.ok) {
-    throw new StoreApiError((data as { message?: string })?.message ?? "خطای سبد خرید", res.status, data);
+    throw new StoreApiError(extractErrorMessage(data), res.status, data);
   }
 
   return {

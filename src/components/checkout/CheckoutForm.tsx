@@ -162,8 +162,15 @@ export function CheckoutForm() {
                 <input id="phone" value={form.phone} onChange={(e) => updateField("phone", e.target.value)} required dir="ltr" />
               </div>
               <div className="form-field full">
-                <label htmlFor="email">ایمیل (اختیاری)</label>
-                <input id="email" type="email" value={form.email} onChange={(e) => updateField("email", e.target.value)} dir="ltr" />
+                <label htmlFor="email">ایمیل</label>
+                <input
+                  id="email"
+                  type="email"
+                  value={form.email}
+                  onChange={(e) => updateField("email", e.target.value)}
+                  required
+                  dir="ltr"
+                />
               </div>
             </div>
             {error && step === "address" && (
