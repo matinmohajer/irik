@@ -1,20 +1,18 @@
 import Link from "next/link";
 
-/** Brand mark: the Irick Pardazesh roofline + pixel-grid glyph, paired with the irick.ir wordmark. */
+/** Brand mark: Irick Pardazesh Novin's two-tone bracket-arrow glyph with its pixel cluster, paired with the IPN wordmark. */
 export function Logo() {
   return (
     <Link href="/" className="logo" aria-label="آیریک — صفحه اصلی">
-      <svg viewBox="0 0 46 40" className="logo-mark" aria-hidden="true">
-        <polygon points="4,34 18,6 22,6 8,34" fill="var(--accent)" />
-        <polygon points="14,34 28,8 34,8 20,34" fill="var(--ink-soft)" />
-        <rect x="27" y="19" width="7" height="7" fill="var(--accent)" />
-        <rect x="35" y="19" width="4.5" height="4.5" fill="var(--ink-soft)" />
-        <rect x="27" y="29" width="4.5" height="4.5" fill="var(--ink-soft)" />
-        <rect x="33.5" y="27" width="6" height="6" fill="var(--accent)" />
-        <rect x="40" y="30" width="3" height="3" fill="var(--ink-soft)" />
+      <svg viewBox="0 0 40 40" className="logo-mark" aria-hidden="true">
+        <path d="M27,7 L12,20 L27,33" fill="none" stroke="var(--ink)" strokeWidth="6" strokeLinecap="square" />
+        <path d="M31,12 L20,20 L31,28" fill="none" stroke="var(--accent)" strokeWidth="5" strokeLinecap="square" />
+        <rect x="21" y="2" width="4.5" height="4.5" fill="var(--ink)" transform="rotate(45 23.25 4.25)" />
+        <rect x="27" y="2" width="4.5" height="4.5" fill="var(--ink)" transform="rotate(45 29.25 4.25)" />
+        <rect x="24" y="7.5" width="4.5" height="4.5" fill="var(--accent)" transform="rotate(45 26.25 9.75)" />
       </svg>
-      <span className="logo-text" dir="ltr">
-        irick<b>.ir</b>
+      <span className="logo-text" dir="ltr" style={{ color: "var(--accent-deep)" }}>
+        IPN
       </span>
     </Link>
   );
