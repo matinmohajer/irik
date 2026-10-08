@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { Icon } from "@/components/icons/Icon";
-import { siteConfig } from "@/lib/site-config";
+import { siteConfig, whatsappHref } from "@/lib/site-config";
 
 export function TopBar() {
   return (
@@ -18,7 +18,10 @@ export function TopBar() {
         </div>
         <div className="topbar-left">
           <Link href="/magazine?category=buying-guide">راهنمای خرید</Link>
-          <Link href="/account/orders">پیگیری سفارش</Link>
+          <a href={whatsappHref()} target="_blank" rel="noopener noreferrer">
+            <Icon name="whatsapp" className="icon icon-sm" />
+            سفارش در واتس‌اپ
+          </a>
         </div>
       </div>
     </div>

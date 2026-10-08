@@ -109,10 +109,10 @@ export default async function HomePage() {
             </div>
           </div>
           <div className="trust-item">
-            <Icon name="card" />
+            <Icon name="whatsapp" />
             <div>
-              <strong>پرداخت امن</strong>
-              <p>پرداخت آنلاین یا در محل فروشگاه</p>
+              <strong>سفارش از واتس‌اپ</strong>
+              <p>استعلام قیمت و ثبت سفارش در یک پیام</p>
             </div>
           </div>
           <div className="trust-item">

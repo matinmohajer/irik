@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Icon } from "@/components/icons/Icon";
 import { Breadcrumb } from "@/components/layout/Breadcrumb";
-import { siteConfig } from "@/lib/site-config";
+import { siteConfig, whatsappHref } from "@/lib/site-config";
 
 export const metadata: Metadata = {
   title: "درباره ما",
@@ -80,10 +80,14 @@ export default function AboutPage() {
             </div>
           </div>
           <div className="trust-item">
-            <Icon name="headset" />
+            <Icon name="whatsapp" />
             <div>
-              <strong>پشتیبانی آنلاین</strong>
-              <p>پاسخگویی در تمام روزهای هفته</p>
+              <strong>واتس‌اپ</strong>
+              <p>
+                <a href={whatsappHref()} target="_blank" rel="noopener noreferrer">
+                  سفارش و استعلام قیمت
+                </a>
+              </p>
             </div>
           </div>
         </div>

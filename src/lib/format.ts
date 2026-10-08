@@ -45,13 +45,6 @@ export function formatJalaliDate(iso: string): string {
   return `${toPersianDigits(jd)} ${JALALI_MONTHS[jm - 1]} ${toPersianDigits(jy)}`;
 }
 
-/** "+989121234567" -> "۰۹۱۲ ۱۲۳ ۴۵۶۷" — the format Iranians actually write phone numbers in */
-export function formatIranianPhone(e164: string): string {
-  const digits = e164.replace(/^\+98/, "0");
-  const grouped = digits.length === 11 ? `${digits.slice(0, 4)} ${digits.slice(4, 7)} ${digits.slice(7)}` : digits;
-  return toPersianDigits(grouped);
-}
-
 /** rounds a discount to a whole percent given regular vs sale price */
 export function discountPercent(regular: number, sale: number): number {
   if (regular <= sale) return 0;

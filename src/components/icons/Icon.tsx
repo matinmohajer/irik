@@ -1,9 +1,6 @@
 export type IconName =
   | "search"
-  | "cart"
-  | "user"
-  | "heart"
-  | "heart-fill"
+  | "whatsapp"
   | "star"
   | "star-o"
   | "chev-down"
@@ -20,7 +17,6 @@ export type IconName =
   | "menu"
   | "truck"
   | "shield"
-  | "card"
   | "headset"
   | "clock"
   | "plus"

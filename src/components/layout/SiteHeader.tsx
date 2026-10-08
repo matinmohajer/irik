@@ -1,9 +1,8 @@
-import Link from "next/link";
-import { CartBadge } from "@/components/cart/CartBadge";
 import { Icon } from "@/components/icons/Icon";
 import { Logo } from "@/components/layout/Logo";
 import { MegaMenu } from "@/components/layout/MegaMenu";
 import { MobileNav } from "@/components/layout/MobileNav";
+import { whatsappHref } from "@/lib/site-config";
 import type { CategoryNode } from "@/lib/types";
 
 export function SiteHeader({ categoryTree }: { categoryTree: CategoryNode[] }) {
@@ -21,16 +20,10 @@ export function SiteHeader({ categoryTree }: { categoryTree: CategoryNode[] }) {
         </form>
 
         <div className="header-actions">
-          <Link href="/account/wishlist" className="btn-icon" aria-label="علاقه‌مندی‌ها">
-            <Icon name="heart" />
-          </Link>
-          <Link href="/account" className="btn-icon" aria-label="حساب کاربری">
-            <Icon name="user" />
-          </Link>
-          <Link href="/cart" className="btn-icon cart-btn" aria-label="سبد خرید">
-            <Icon name="cart" />
-            <CartBadge />
-          </Link>
+          <a href={whatsappHref()} target="_blank" rel="noopener noreferrer" className="btn btn-whatsapp header-wa" aria-label="سفارش در واتس‌اپ">
+            <Icon name="whatsapp" />
+            <span className="header-wa-label">سفارش در واتس‌اپ</span>
+          </a>
         </div>
       </div>
     </header>

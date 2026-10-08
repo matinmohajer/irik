@@ -1,9 +1,9 @@
 import Image from "next/image";
 import Link from "next/link";
-import { AddToCartButton } from "@/components/cart/AddToCartButton";
 import { Icon } from "@/components/icons/Icon";
 import { discountPercent, formatPercent, formatToman } from "@/lib/format";
 import { isSvgPath } from "@/lib/image";
+import { siteConfig, whatsappHref } from "@/lib/site-config";
 import type { Product } from "@/lib/types";
 
 export function ProductCard({ product }: { product: Product }) {
@@ -31,9 +31,6 @@ export function ProductCard({ product }: { product: Product }) {
           {product.isNew && <span className="badge badge-new">جدید</span>}
           {product.isBestSeller && <span className="badge badge-accent">پرفروش</span>}
         </div>
-        <button type="button" className="card-fav" aria-label="افزودن به علاقه‌مندی‌ها">
-          <Icon name="heart" className="icon" />
-        </button>
       </div>
       <div className="card-body">
         {product.brand && <span className="card-brand">{product.brand}</span>}
@@ -57,7 +54,15 @@ export function ProductCard({ product }: { product: Product }) {
             {onSale && <span className="price price-was">{formatToman(product.regularPrice!)}</span>}
             <span className="price price-now">{formatToman(product.price)}</span>
           </div>
-          <AddToCartButton productId={Number(product.id)} disabled={!product.inStock} />
+          <a
+            href={whatsappHref(`سلام، درباره «${product.name}» سؤال داشتم.\n${siteConfig.url}${href}`)}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="card-wa"
+            aria-label={`استعلام ${product.name} در واتس‌اپ`}
+          >
+            <Icon name="whatsapp" className="icon" />
+          </a>
         </div>
       </div>
     </article>

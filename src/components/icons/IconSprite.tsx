@@ -10,23 +10,9 @@ export function IconSprite() {
           <circle cx="11" cy="11" r="7" />
           <line x1="21" y1="21" x2="16.2" y2="16.2" />
         </symbol>
-        <symbol id="i-cart" viewBox="0 0 24 24">
-          <circle cx="9" cy="21" r="1.4" fill="currentColor" stroke="none" />
-          <circle cx="18" cy="21" r="1.4" fill="currentColor" stroke="none" />
-          <path d="M2.5 3h2.4l2.1 12.2a2 2 0 0 0 2 1.65h8.3a2 2 0 0 0 1.97-1.63L21 8H6.2" />
-        </symbol>
-        <symbol id="i-user" viewBox="0 0 24 24">
-          <circle cx="12" cy="8" r="3.6" />
-          <path d="M4.5 20c1.3-3.7 4.2-5.6 7.5-5.6s6.2 1.9 7.5 5.6" />
-        </symbol>
-        <symbol id="i-heart" viewBox="0 0 24 24">
-          <path d="M12 20.2s-7.6-4.6-9.8-9.3C.6 7.1 2.6 3.7 6 3.2c2-.3 3.9.6 5 2.3 1.1-1.7 3-2.6 5-2.3 3.4.5 5.4 3.9 3.8 7.7-2.2 4.7-9.8 9.3-9.8 9.3z" />
-        </symbol>
-        <symbol id="i-heart-fill" viewBox="0 0 24 24">
-          <path
-            d="M12 20.2s-7.6-4.6-9.8-9.3C.6 7.1 2.6 3.7 6 3.2c2-.3 3.9.6 5 2.3 1.1-1.7 3-2.6 5-2.3 3.4.5 5.4 3.9 3.8 7.7-2.2 4.7-9.8 9.3-9.8 9.3z"
-            fill="currentColor"
-          />
+        <symbol id="i-whatsapp" viewBox="0 0 24 24">
+          <path d="M3.6 20.4l1.2-4.3a8.4 8.4 0 1 1 3.2 3.1z" />
+          <path d="M9.1 7.9c.4-.5 1-.5 1.3.1l.6 1.4c.1.3 0 .6-.2.8l-.6.6c.6 1.2 1.6 2.2 2.8 2.8l.6-.6c.2-.2.5-.3.8-.2l1.4.6c.6.3.6.9.1 1.3-.8.7-2 .9-3 .4a8 8 0 0 1-4.2-4.2c-.5-1-.3-2.2.4-3z" />
         </symbol>
         <symbol id="i-star" viewBox="0 0 24 24">
           <path
@@ -98,11 +84,6 @@ export function IconSprite() {
         <symbol id="i-shield" viewBox="0 0 24 24">
           <path d="M12 3l7.5 3v5.2c0 5-3.2 8.4-7.5 10-4.3-1.6-7.5-5-7.5-10V6z" />
           <polyline points="8.7,12.2 11,14.5 15.5,9.8" />
-        </symbol>
-        <symbol id="i-card" viewBox="0 0 24 24">
-          <rect x="2.5" y="5.5" width="19" height="13" rx="2" />
-          <line x1="2.5" y1="10" x2="21.5" y2="10" />
-          <line x1="6" y1="14.5" x2="10" y2="14.5" />
         </symbol>
         <symbol id="i-headset" viewBox="0 0 24 24">
           <path d="M4 13v-1a8 8 0 0 1 16 0v1" />

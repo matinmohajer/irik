@@ -5,7 +5,7 @@ import { usePathname } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
 import { Icon } from "@/components/icons/Icon";
 import { Logo } from "@/components/layout/Logo";
-import { siteConfig } from "@/lib/site-config";
+import { siteConfig, whatsappHref } from "@/lib/site-config";
 import type { CategoryNode } from "@/lib/types";
 
 /**
@@ -114,6 +114,10 @@ export function MobileNav({ tree }: { tree: CategoryNode[] }) {
           </nav>
 
           <div className="mobile-drawer-foot">
+            <a href={whatsappHref()} target="_blank" rel="noopener noreferrer">
+              <Icon name="whatsapp" className="icon icon-sm" />
+              سفارش در واتس‌اپ
+            </a>
             <a href={siteConfig.phoneHref}>
               <Icon name="phone" className="icon icon-sm" />
               <span dir="ltr">{siteConfig.phoneDisplay}</span>

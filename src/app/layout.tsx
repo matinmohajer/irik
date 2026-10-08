@@ -1,12 +1,12 @@
 import type { Metadata } from "next";
-import { CartProvider } from "@/components/cart/CartProvider";
+import { Icon } from "@/components/icons/Icon";
 import { IconSprite } from "@/components/icons/IconSprite";
 import { SiteFooter } from "@/components/layout/SiteFooter";
 import { SiteHeader } from "@/components/layout/SiteHeader";
 import { TopBar } from "@/components/layout/TopBar";
 import { vazirmatn } from "@/fonts";
 import { getCategoryTree } from "@/lib/data";
-import { siteConfig } from "@/lib/site-config";
+import { siteConfig, whatsappHref } from "@/lib/site-config";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -25,12 +25,13 @@ export default async function RootLayout({ children }: { children: React.ReactNo
     <html lang="fa" dir="rtl" className={vazirmatn.variable}>
       <body>
         <IconSprite />
-        <CartProvider>
-          <TopBar />
-          <SiteHeader categoryTree={categoryTree} />
-          {children}
-          <SiteFooter />
-        </CartProvider>
+        <TopBar />
+        <SiteHeader categoryTree={categoryTree} />
+        {children}
+        <SiteFooter />
+        <a href={whatsappHref()} target="_blank" rel="noopener noreferrer" className="wa-float" aria-label="گفتگو در واتس‌اپ">
+          <Icon name="whatsapp" />
+        </a>
       </body>
     </html>
   );

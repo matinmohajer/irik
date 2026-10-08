@@ -2,11 +2,11 @@
 
 import Image from "next/image";
 import { useState } from "react";
-import { AddToCartButton } from "@/components/cart/AddToCartButton";
 import { Icon } from "@/components/icons/Icon";
 import { StarRating } from "@/components/ui/StarRating";
 import { discountPercent, formatPercent, formatToman, toPersianDigits } from "@/lib/format";
 import { isSvgPath } from "@/lib/image";
+import { siteConfig, whatsappHref } from "@/lib/site-config";
 import type { Product } from "@/lib/types";
 
 type Tab = "desc" | "specs" | "reviews";
@@ -20,6 +20,13 @@ export function ProductDetail({ product }: { product: Product }) {
   const [tab, setTab] = useState<Tab>("desc");
 
   const onSale = product.regularPrice && product.regularPrice > product.price;
+  const orderMessage = [
+    product.inStock ? "سلام، می‌خواهم این محصول را سفارش دهم:" : "سلام، موجودی این محصول را استعلام می‌کنم:",
+    product.name,
+    ...Object.entries(variants).map(([label, option]) => `${label}: ${option}`),
+    `تعداد: ${toPersianDigits(quantity)}`,
+    `${siteConfig.url}/product/${product.slug}`,
+  ].join("\n");
   const images = product.images.length > 0 ? product.images : [null];
 
   return (
@@ -111,10 +118,10 @@ export function ProductDetail({ product }: { product: Product }) {
                 <Icon name="plus" className="icon icon-sm" />
               </button>
             </div>
-            <AddToCartButton productId={Number(product.id)} quantity={quantity} disabled={!product.inStock} variant="full" />
-            <button type="button" className="btn-icon" style={{ border: "1px solid var(--line)", borderRadius: "var(--radius-md)", width: 44, height: 44 }} aria-label="افزودن به علاقه‌مندی">
-              <Icon name="heart" />
-            </button>
+            <a href={whatsappHref(orderMessage)} target="_blank" rel="noopener noreferrer" className="btn btn-whatsapp">
+              <Icon name="whatsapp" className="icon" />
+              {product.inStock ? "سفارش در واتس‌اپ" : "استعلام موجودی در واتس‌اپ"}
+            </a>
           </div>
 
           {product.specs && product.specs.length > 0 && (
