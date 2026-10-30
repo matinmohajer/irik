@@ -20,8 +20,14 @@ export function ProductDetail({ product }: { product: Product }) {
   const [tab, setTab] = useState<Tab>("desc");
 
   const onSale = product.regularPrice && product.regularPrice > product.price;
+  // Products listed without a price ("CALL" on the supplier list) are sold by quote over WhatsApp.
+  const hasPrice = product.price > 0;
   const orderMessage = [
-    product.inStock ? "سلام، می‌خواهم این محصول را سفارش دهم:" : "سلام، موجودی این محصول را استعلام می‌کنم:",
+    !product.inStock
+      ? "سلام، موجودی این محصول را استعلام می‌کنم:"
+      : hasPrice
+        ? "سلام، می‌خواهم این محصول را سفارش دهم:"
+        : "سلام، قیمت این محصول را استعلام می‌کنم:",
     product.name,
     ...Object.entries(variants).map(([label, option]) => `${label}: ${option}`),
     `تعداد: ${toPersianDigits(quantity)}`,
@@ -81,7 +87,7 @@ export function ProductDetail({ product }: { product: Product }) {
           <div className="price-block">
             <div className="price-wrap">
               {onSale && <span className="price price-was">{formatToman(product.regularPrice!)}</span>}
-              <span className="price price-now">{formatToman(product.price)}</span>
+              <span className="price price-now">{hasPrice ? formatToman(product.price) : "استعلام قیمت"}</span>
             </div>
             {onSale && (
               <span className="discount-badge">
@@ -120,7 +126,7 @@ export function ProductDetail({ product }: { product: Product }) {
             </div>
             <a href={whatsappHref(orderMessage)} target="_blank" rel="noopener noreferrer" className="btn btn-whatsapp">
               <Icon name="whatsapp" className="icon" />
-              {product.inStock ? "سفارش در واتس‌اپ" : "استعلام موجودی در واتس‌اپ"}
+              {!product.inStock ? "استعلام موجودی در واتس‌اپ" : hasPrice ? "سفارش در واتس‌اپ" : "استعلام قیمت در واتس‌اپ"}
             </a>
           </div>
 

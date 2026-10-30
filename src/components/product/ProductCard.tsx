@@ -52,7 +52,7 @@ export function ProductCard({ product }: { product: Product }) {
         <div className="card-foot">
           <div className="price-wrap">
             {onSale && <span className="price price-was">{formatToman(product.regularPrice!)}</span>}
-            <span className="price price-now">{formatToman(product.price)}</span>
+            <span className="price price-now">{product.price > 0 ? formatToman(product.price) : "استعلام قیمت"}</span>
           </div>
           <a
             href={whatsappHref(`سلام، درباره «${product.name}» سؤال داشتم.\n${siteConfig.url}${href}`)}
